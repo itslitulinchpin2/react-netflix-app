@@ -29,7 +29,7 @@ function App() {
  
 
   return (
-    <div>
+    <div className="main"> 
     <NavBar></NavBar>
     <Routes>
       <Route path="/" element={<Home></Home>}></Route>

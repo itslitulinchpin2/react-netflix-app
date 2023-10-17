@@ -24,6 +24,17 @@
 
 }
 .card{
+    
+    width:290px;
+}
+.react-multi-carousel-item{
     height:200px;
-    width:300px;
+}
+.main{
+    background-color: black;
+}
+.home h1{
+    margin-top:10px;
+    color: gray;
+    margin-bottom: 20px;
 }

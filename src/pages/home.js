@@ -36,7 +36,7 @@ const Home = () => {
 
   }
   else return (
-    <div>
+    <div className="home">
       <Banner movie={popularMovies.results[0]}></Banner>
       <h1>Popular Movies</h1>
       <MovieSlide movies={popularMovies}/>

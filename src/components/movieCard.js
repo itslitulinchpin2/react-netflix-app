@@ -9,8 +9,8 @@ const MovieCard = ({item}) => {
     "url("
     +`https://www.themoviedb.org/t/p/w355_and_h200_face${item.poster_path}`
     +
-    ")"}}>
-      {item.title}
+    ")", height:"200px"}}>
+    {item.title}
     </div>
   )
 }
