@@ -7,6 +7,7 @@ import Movies from './pages/movies';
 import Nav from './components/nav';
 import NavBar from './components/nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useEffect } from 'react';
 //개발과정 총정리
 //1. 3개의 페이지 - 홈페이지, movie페이지, movieDetail페이지
 
@@ -24,6 +25,9 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //11. 영화 정렬을 할 수 있다.
 //12. 영화 필터링을 할 수 있다.
 function App() {
+
+ 
+
   return (
     <div>
     <NavBar></NavBar>
