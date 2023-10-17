@@ -1,5 +1,4 @@
 let initialState={
-
 }
 
 function reducer2(state=initialState,action){
