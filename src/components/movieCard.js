@@ -1,8 +1,10 @@
 import React from 'react'
 import Badge from 'react-bootstrap/Badge';
 import { UseSelector, useSelector } from 'react-redux/es/hooks/useSelector';
+import { useNavigate } from 'react-router-dom';
 const MovieCard = ({item}) => {
-    console.log("아이템값:", item)
+  const navigate = useNavigate();
+   
     const genreList=useSelector(state=>state.movie.genreList)
     //console.log("장르리스트 받아오기: ",genreList)
   
@@ -16,6 +18,7 @@ const MovieCard = ({item}) => {
   // }
   // console.log("장르 글로 나오나? ", idList);
 
+  
   return (
     <div 
     className="card"
@@ -23,7 +26,8 @@ const MovieCard = ({item}) => {
     "url("
     +`https://www.themoviedb.org/t/p/w355_and_h200_face${item.poster_path}`
     +
-    ")", height:"200px"}}>
+    ")", height:"200px"}}
+    onClick={()=>{navigate(`/movies/${item.id}`)}}>
     <div className="overlay">
       <div>
         <h1>{item.title}</h1>

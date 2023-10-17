@@ -2,7 +2,7 @@ import logo from './logo.svg';
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
-import MovieDetail from './pages/movieDetail';
+import MovieDetailPage from './pages/movieDetail';
 import Movies from './pages/movies';
 import Nav from './components/nav';
 import NavBar from './components/nav';
@@ -34,7 +34,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Home></Home>}></Route>
       <Route path="movies" element={<Movies></Movies>}></Route>
-      <Route path="/movies/:id" element={<MovieDetail></MovieDetail>}></Route>
+      <Route path="/movies/:id" element={<MovieDetailPage></MovieDetailPage>}></Route>
     </Routes>
     </div>
   );
