@@ -4,6 +4,9 @@ import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import MovieDetail from './pages/movieDetail';
 import Movies from './pages/movies';
+import Nav from './components/nav';
+import NavBar from './components/nav';
+import 'bootstrap/dist/css/bootstrap.min.css';
 //개발과정 총정리
 //1. 3개의 페이지 - 홈페이지, movie페이지, movieDetail페이지
 
@@ -22,11 +25,14 @@ import Movies from './pages/movies';
 //12. 영화 필터링을 할 수 있다.
 function App() {
   return (
+    <div>
+    <NavBar></NavBar>
     <Routes>
       <Route path="/" element={<Home></Home>}></Route>
       <Route path="movies" element={<Movies></Movies>}></Route>
       <Route path="/movies/:id" element={<MovieDetail></MovieDetail>}></Route>
     </Routes>
+    </div>
   );
 }
 
