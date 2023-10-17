@@ -38,3 +38,12 @@
     color: gray;
     margin-bottom: 20px;
 }
+.overlay{
+    opacity:0 
+
+}
+/*opacity: 투명도가 0 */
+
+.card:hover .overlay{
+    opacity:1
+}

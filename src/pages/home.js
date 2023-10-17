@@ -9,7 +9,7 @@ import { useState } from 'react';
 const Home = () => {
 
   const dispatch=useDispatch();
-  const {popularMovies,topRatedMovies,upcomingMovies,loading}=useSelector(state=>state.movie)
+  const {popularMovies,topRatedMovies,upcomingMovies,genreList,loading}=useSelector(state=>state.movie)
   //console.log("Home에 진짜 왔나? ",popularMovies)
   
   useEffect(()=>{
@@ -39,7 +39,7 @@ const Home = () => {
     <div className="home">
       <Banner movie={popularMovies.results[0]}></Banner>
       <h1>Popular Movies</h1>
-      <MovieSlide movies={popularMovies}/>
+      <MovieSlide movies={popularMovies} />
       <h1>Top Rated Movies</h1>
       <MovieSlide movies={topRatedMovies}/>
       <h1>Upcoming Movies</h1>
