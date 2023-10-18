@@ -2,7 +2,7 @@ import React from 'react'
 import { Container,Row,Col } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import {useSelector} from 'react-redux'
 import {movieDetailAction} from '../redux/actions/movieDetailAction'
 import ClipLoader from "react-spinners/ClipLoader";
@@ -10,7 +10,8 @@ import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 
 const MovieDetailPage = () => {
-  
+  const [menuState,setmenuState]=useState("Reviews")
+
   const params=useParams()
   const movieId=params.id;
   console.log(movieId)
@@ -67,16 +68,37 @@ return ((loading||genreLoading) ? <ClipLoader
       </Row>
       <Row>
       <div className="mb-2">
-        <Button variant="primary" size="lg">
+        <Button onClick={function(){
+          setmenuState("Reviews")
+          console.log("state값 바꿈: ",menuState)
+        }}
+        variant="primary" size="lg">
           Reviews
-        </Button>{' '}
-        <Button variant="secondary" size="lg">
+        </Button>
+        <Button onClick={()=>{
+          setmenuState("Similar")
+          console.log("state값 바꿈: ",menuState)
+        }} variant="secondary" size="lg">
           Similar films
         </Button>
       </div>
       </Row>
       <Row>
-        hi
+        {menuState=== "Reviews" ? 
+        <div>
+          {movieReviewDetail.results.map(data=>
+            <div>
+              <h2>{data.author}</h2>
+              <p>{data.content}</p>
+
+            </div>)}
+        </div> :
+        <div>
+          유사 영화목록을 뿌리자
+        </div>
+        
+        }
+  
       </Row>
     </Container>
     </div>
