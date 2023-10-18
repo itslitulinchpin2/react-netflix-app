@@ -2,6 +2,7 @@ let initialState={
     movieReceivedDetail:{},
     movieReviewDetail:{},
     similarMovies:{},
+    videoDetail:{},
     loading:true
 }
 
@@ -12,7 +13,9 @@ function movieDetailReducer(state=initialState,action){
             movieReceivedDetail:payload.movieDetail,
             movieReviewDetail:payload.movieReview,
             similarMovies:payload.similarMovies,
+            videoDetail:payload.videoDetail,
             loading:false}
+
     } else if (type==="GET_MOVIE_DETAIL_REQUEST"){
         return{...state,loading:true}
     } else if (type==="GET_MOVIE_DETAIL_ERROR"){
