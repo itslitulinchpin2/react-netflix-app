@@ -36,7 +36,7 @@ const genreLoading=useSelector(state=>state.movie.loading)
 
   useEffect(()=>{
     getMovieDetail(movieId);
-  },[])
+  },[movieId])
 
 const baseURL="https://www.themoviedb.org/t/p/w300_and_h450_bestv2"
 

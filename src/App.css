@@ -48,3 +48,8 @@
 .detail{
     background-color:gray;
 }
+.similar-movie-name{
+    
+    padding-bottom:5px;
+    cursor:pointer
+}

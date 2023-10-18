@@ -1,8 +1,13 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 const SimilarMovieCard = ({data}) => {
+    const navigate=useNavigate();  
   return (
-    <div>
+    <div className='similar-movie-name'
+        onClick={()=>{
+            navigate(`/movies/${data.id}`)
+        }}>
       {data.title}
     </div>
   )
