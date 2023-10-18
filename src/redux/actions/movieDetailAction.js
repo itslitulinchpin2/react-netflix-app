@@ -12,12 +12,18 @@ function getMovie(movie_id){
         const getMovieDetailApi=
          api.get(`/movie/${movie_id}?api_key=${API_KEY}&language=en-US&page=1`)
 
-        let [movieDetail]=await Promise.all([getMovieDetailApi]);
-        console.log("디테일을 아주 잘 받아옴,성공시키면서 보내는 데이터: ",movieDetail.data);
+        
+
+        const getReviewApi=
+        api.get(`/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
+        let [movieDetail,movieReview]=await Promise.all([getMovieDetailApi,getReviewApi]);
+       
+
          dispatch({
             type:"GET_MOVIE_DETAIL_SUCCESS",
             payload:{
-                movieDetail:movieDetail.data
+                movieDetail:movieDetail.data,
+                movieReview:movieReview.data
             }
         })
         
