@@ -16,14 +16,19 @@ function getMovie(movie_id){
 
         const getReviewApi=
         api.get(`/movie/${movie_id}/reviews?api_key=${API_KEY}&language=en-US&page=1`)
-        let [movieDetail,movieReview]=await Promise.all([getMovieDetailApi,getReviewApi]);
-       
+        
 
+        const getSimilarMoviesApi=
+        api.get(`/movie/${movie_id}/recommendations?api_key=${API_KEY}&language=en-US&page=1`)
+       
+        
+        let [movieDetail,movieReview,similarMovies]=await Promise.all([getMovieDetailApi,getReviewApi,getSimilarMoviesApi]);
          dispatch({
             type:"GET_MOVIE_DETAIL_SUCCESS",
             payload:{
                 movieDetail:movieDetail.data,
-                movieReview:movieReview.data
+                movieReview:movieReview.data,
+                similarMovies:similarMovies.data
             }
         })
         

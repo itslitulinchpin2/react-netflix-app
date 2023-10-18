@@ -8,6 +8,7 @@ import {movieDetailAction} from '../redux/actions/movieDetailAction'
 import ClipLoader from "react-spinners/ClipLoader";
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
+import SimilarMovieCard from '../components/similarMovieCard';
 
 const MovieDetailPage = () => {
   const [menuState,setmenuState]=useState("Reviews")
@@ -22,7 +23,7 @@ const MovieDetailPage = () => {
     dispatch(movieDetailAction.getMovie(movieId))
   }
 
-const {movieReceivedDetail,movieReviewDetail,loading}=useSelector(state=>state.detail)
+const {movieReceivedDetail,movieReviewDetail,similarMovies,loading}=useSelector(state=>state.detail)
 const genreList=useSelector(state=>state.movie.genreList)
 const genreLoading=useSelector(state=>state.movie.loading)
   console.log("디테일 로딩값: ",loading)
@@ -30,6 +31,7 @@ const genreLoading=useSelector(state=>state.movie.loading)
   console.log("받아온 무비 리뷰값: ",movieReviewDetail)
   console.log("장르 로딩값: ", genreLoading);
   console.log("받아온 장르값: ",genreList)
+  console.log("받아온 시밀러무비즈: ",similarMovies)
  
 
   useEffect(()=>{
@@ -94,7 +96,8 @@ return ((loading||genreLoading) ? <ClipLoader
             </div>)}
         </div> :
         <div>
-          유사 영화목록을 뿌리자
+          {similarMovies.results.map(data=>
+            <SimilarMovieCard data={data}></SimilarMovieCard>)}
         </div>
         
         }
