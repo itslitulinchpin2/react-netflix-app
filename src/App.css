@@ -36,6 +36,7 @@
     color: gray;
     margin-bottom: 20px;
 }
+
 .overlay{
     opacity:0 
 
@@ -52,4 +53,21 @@
     
     padding-bottom:5px;
     cursor:pointer
+}
+.movies-card{
+    cursor: pointer;
+    color:gray
+
+}
+.movies-card:hover .movies-overlay{
+    opacity: 1;
+}
+.movies-overlay{
+    opacity: 0;
+}
+.movies-card h3{
+    color:gray
+}
+.movies-contents{
+    margin:15px;
 }
