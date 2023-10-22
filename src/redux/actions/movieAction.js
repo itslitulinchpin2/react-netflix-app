@@ -15,11 +15,15 @@ function getMovies(){
      
             const upComingApi=
             api.get(`/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`)
+        
             
             const genreApi=
             api.get(`/genre/movie/list?api_key=${API_KEY}&language=en-US&page=1`)
+
+            const allMovieApi = 
+            api.get(`/movie/popular?api_key=${API_KEY}&language=en-US`)
      
-            let [popularMovies,topRatedMovies,upcomingMovies,genreList] = await Promise.all([popularMovieApi,topRatedApi,upComingApi,genreApi])
+            let [popularMovies,topRatedMovies,upcomingMovies,genreList,allMovieList] = await Promise.all([popularMovieApi,topRatedApi,upComingApi,genreApi,allMovieApi])
             //세 개의 API호출을 동시에 진행시키되,
             //세 개의 응답이 모두 올때까지만 기다린다.
             //await는 한 번만 사용하면 된다.
@@ -30,7 +34,8 @@ function getMovies(){
                     popularMovies:popularMovies.data,
                     topRatedMovies:topRatedMovies.data,
                     upcomingMovies:upcomingMovies.data,
-                    genreList:genreList.data.genres
+                    genreList:genreList.data.genres,
+                    allMovieList:allMovieList.data
                 }
                })
 

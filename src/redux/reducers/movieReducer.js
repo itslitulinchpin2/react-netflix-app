@@ -3,7 +3,8 @@ let initialState={
     topRatedMovies:{},
     upcomingMovies:{},
     loading:true,
-    genreList:[]
+    genreList:[],
+    allMovieList:[]
 }
 
 function movieReducer(state=initialState,action){
@@ -17,6 +18,7 @@ function movieReducer(state=initialState,action){
             topRatedMovies:payload.topRatedMovies,
             upcomingMovies:payload.upcomingMovies,
             genreList:payload.genreList,
+            allMovieList:payload.allMovieList,
             loading:false}
     } else if (type==="GET_MOVIES_FAILURE"){
         return{...state,loading:false}
