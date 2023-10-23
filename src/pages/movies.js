@@ -25,7 +25,6 @@ const Movies = () => {
   const [movieList,setMovieList] = useState(useSelector(state=>state.movie.topRatedMovies.results))
   const originalLoading=useSelector(state=>state.movie.loading)
   const searchedLoading=useSelector(state=>state.searched.loading);
- 
   let newList=useSelector(state=>state.searched.searchedMovieList.results)
   console.log("무비리스트: ",movieList)
   console.log("뉴리스트: ",newList);
@@ -70,7 +69,8 @@ const Movies = () => {
       setMovieList(sortedbyIMDBList);
 
     }
-  } else if (query===true){
+  } 
+  /*else if (query===true){
     //이때는 뉴리스트를 정렬
     console.log("쿼리있을때")
     if(sortby==="Sorted by popularity"){
@@ -103,7 +103,8 @@ const Movies = () => {
       newList=sortedbyIMDBList
       console.log("정렬된 뉴리스트: ",newList)
     }
-  }}
+  }*/
+}
 
     useEffect(()=>{
       console.log("아무것도 없는 화면이 렌더링 됨.")
@@ -179,31 +180,9 @@ else {
 <div>
       
       <div>
-    <DropdownButton id="dropdown-basic-button" title={toggleName} >
-
-      <Dropdown.Item onClick = {function(e){
-
-        e.preventDefault();
-   
-        sortFilms(e.target.id,true)
+    
+      We found {newList&&newList.length} results
         
-        setToggleName(e.target.id)
-        
-      }}
-       id="Sorted by popularity">popularity</Dropdown.Item>
-
-      <Dropdown.Item 
-         onClick = {function(e){
-          e.preventDefault();
-          sortFilms(e.target.id,true)
-          setToggleName(e.target.id)
-          }}
-       id="Sorted by IMDB SCORE">IMDB SCORE</Dropdown.Item>
-
-    </DropdownButton>
-      </div>
-      <div>
-        Filter
       </div>
     <Container>
       <Row>
