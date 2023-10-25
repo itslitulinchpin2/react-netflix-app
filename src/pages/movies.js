@@ -25,22 +25,23 @@ const Movies = () => {
 const please = (string)=>{
 
   dispatch(movieSearch.searchMovies(string)) 
-  //setFinalList(newList)
-  console.log("작업완료")
-
+ 
 }
   const newList=useSelector(state=>state.searched.searchedMovieList.results)
   const [movieList,setMovieList] = useState(useSelector(state=>state.movie.topRatedMovies.results))
   const originalLoading=useSelector(state=>state.movie.loading)
   const searchedLoading=useSelector(state=>state.searched.loading);
   const genreList=useSelector(state=>state.movie.genreList);
-  console.log("장르리스트: ",genreList)
+  //console.log("장르리스트: ",genreList)
   
+  const[list,setList]=useState()
   
   //let newList=useSelector(state=>state.searched.searchedMovieList.results)
   //const [finalList,setFinalList] = useState()
   console.log("메인화면 무비리스트: ",movieList)
   console.log("메인화면 뉴리스트: ",newList);
+  console.log("메인화면 list: ",list)
+
  //console.log("메인화면 파이널리스트: ",finalList)
   
 
@@ -168,14 +169,14 @@ const please = (string)=>{
     useEffect(()=>{
       console.log("여기는 실행이 된다.")
       dispatch(movieAction.getMovies());
-     
-      if((query.get('query')!== null) ||(query.get('query')!== undefined) || (query.get('query')!=="")||(query.get('query')!=="undefined")){
-        console.log("이아이를 이 쿼리스트링으로 실행해야지: ",query.get('query'))
+    
+      console.log("이 쿼리스트링으로 실행해야지: ",query.get('query'))
       //dispatch(movieSearch.searchMovies(query.get('query'))) 
       const string=query.get('query')
       please(string)
-      }
-    },[query])
+
+      
+    },[searchString])
 
     // useEffect(()=>{
     //   console.log("유즈이펙트 내부 현재뉴리스트: ",newList);
@@ -185,9 +186,9 @@ if (originalLoading||searchedLoading) {
   return <div>로딩중입니다.</div>
 } else if (query.get('query')===null||undefined||""){
   return (
-
+   
     <div>
-      
+       {console.log("우웩")}
       <div>
     <DropdownButton id="dropdown-basic-button" title={toggleName} >
       <Dropdown.Item onClick = {function(e){
@@ -249,12 +250,12 @@ if (originalLoading||searchedLoading) {
 } else {
   return(
     <div>
-          
+         {console.log("우웩!")} 
           <div>
         
           We found {newList&&newList.length} results
-    
-          <DropdownButton id="dropdown-basic-button" title={toggleName} >
+        
+          {/* <DropdownButton id="dropdown-basic-button" title={toggleName} >
           <Dropdown.Item onClick = {function(e){
             
             e.preventDefault();
@@ -275,7 +276,7 @@ if (originalLoading||searchedLoading) {
             }
             }
            id="Sorted by IMDB SCORE">IMDB SCORE</Dropdown.Item>
-        </DropdownButton>
+        </DropdownButton> */}
     
     
             
