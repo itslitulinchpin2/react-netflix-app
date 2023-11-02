@@ -150,22 +150,7 @@ const please = (string)=>{
     setMovieList(filterList);
   }
 
-    // useEffect(()=>{
-    //   console.log("항상 실행되나?")
-    //   if(searchString===null||undefined||""){
-    //     console.log("쿼리 없을때 화면이 렌더링 됨.")
-    //     dispatch(movieAction.getMovies())
-    //   } else {
-    //     console.log("쿼리가 있는 경우에만 렌더링 됨.")
-    //     dispatch(movieSearch.searchMovies(searchString));
-    //   }
-    // },[searchString])
-
-    // const Ssibal = () => {
-    //   dispatch(movieSearch.searchMovies(searchString))
-    //   setMovieList(useSelector(state=>state.searched.searchedMovieList.results))
-    //   console.log("되나? ")
-    // }
+  
     useEffect(()=>{
       console.log("여기는 실행이 된다.")
       dispatch(movieAction.getMovies());
@@ -178,9 +163,6 @@ const please = (string)=>{
       
     },[searchString])
 
-    // useEffect(()=>{
-    //   console.log("유즈이펙트 내부 현재뉴리스트: ",newList);
-    // },[newList])
 
 if (originalLoading||searchedLoading) {
   return <div>로딩중입니다.</div>
