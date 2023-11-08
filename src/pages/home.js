@@ -5,7 +5,7 @@ import { useDispatch,useSelector } from 'react-redux';
 import Banner from '../components/banner';
 import MovieSlide from '../components/movieSlide';
 import ClipLoader from "react-spinners/ClipLoader";
-import { useState } from 'react';
+
 const Home = () => {
 
   const dispatch=useDispatch();

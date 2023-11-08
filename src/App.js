@@ -1,13 +1,13 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { Route, Routes } from 'react-router-dom';
 import Home from './pages/home';
 import MovieDetailPage from './pages/movieDetail';
 import Movies from './pages/movies';
-import Nav from './components/nav';
+
 import NavBar from './components/nav';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useEffect } from 'react';
+
 //개발과정 총정리
 //1. 3개의 페이지 - 홈페이지, movie페이지, movieDetail페이지
 

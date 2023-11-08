@@ -6,7 +6,7 @@ const API_KEY = process.env.REACT_APP_API_KEY
 function getMovie(movie_id){
     return async (dispatch)=>{
         try{
-            console.log("디테일 리퀘스트 시작, 진짜 액션에 던짐");
+            
             dispatch({type:"GET_MOVIE_DETAIL_REQUEST"})
     
         const getMovieDetailApi=

@@ -232,7 +232,6 @@ if (originalLoading||searchedLoading) {
 } else {
   return(
     <div>
-         {console.log("우웩!")} 
           <div>
         
           We found {newList&&newList.length} results

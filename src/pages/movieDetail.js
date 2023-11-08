@@ -18,7 +18,6 @@ const MovieDetailPage = () => {
     height: '390',
     width: '460',
     playerVars: {
-      // https://developers.google.com/youtube/player_parameters
       autoplay: 1,
     },
   };
@@ -40,21 +39,12 @@ const MovieDetailPage = () => {
   const dispatch=useDispatch();
   
   const getMovieDetail = (movieId) => {
-    console.log("이게안돼?")
     dispatch(movieDetailAction.getMovie(movieId))
   }
 
 const {movieReceivedDetail,movieReviewDetail,similarMovies,videoDetail,loading}=useSelector(state=>state.detail)
 const genreList=useSelector(state=>state.movie.genreList)
 const genreLoading=useSelector(state=>state.movie.loading)
-  console.log("디테일 로딩값: ",loading)
-  console.log("받아온 무비 디테일값: ",movieReceivedDetail)
-  console.log("받아온 무비 리뷰값: ",movieReviewDetail)
-  console.log("장르 로딩값: ", genreLoading);
-  console.log("받아온 장르값: ",genreList)
-  console.log("받아온 시밀러무비즈: ",similarMovies)
-  console.log("비디오디테일: ",videoDetail)
-
  
 
   useEffect(()=>{
@@ -119,14 +109,12 @@ return ((loading||genreLoading) ? <ClipLoader
       <div className="mb-2">
         <Button onClick={function(){
           setmenuState("Reviews")
-          console.log("state값 바꿈: ",menuState)
         }}
         variant="primary" size="lg">
           Reviews
         </Button>
         <Button onClick={()=>{
           setmenuState("Similar")
-          console.log("state값 바꿈: ",menuState)
         }} variant="secondary" size="lg">
           Similar films
         </Button>
