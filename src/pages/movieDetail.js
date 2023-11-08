@@ -9,7 +9,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import Badge from 'react-bootstrap/Badge';
 import Button from 'react-bootstrap/Button';
 import SimilarMovieCard from '../components/similarMovieCard';
-import YouTube, {YouTubeProps} from 'react-youtube';
+import YouTube from 'react-youtube';
 import Modal from 'react-bootstrap/Modal';
 
 const MovieDetailPage = () => {
